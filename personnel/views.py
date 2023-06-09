@@ -7,7 +7,10 @@ from .models import Department,Personnel
 class DepartmentListCreateView(ListCreateAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
-
+    permission_classes = (
+        IsAuthenticated,
+        IsAdminOrReadOnly,
+    )
 
 class PersonnelListCreateView(ListCreateAPIView):
     queryset = Personnel.objects.all()
@@ -33,3 +36,4 @@ class DepartmentPersonnelView(ListAPIView):
         department = self.kwargs['department']
         return Department.objects.filter(name__iexact=department)
 
+    
