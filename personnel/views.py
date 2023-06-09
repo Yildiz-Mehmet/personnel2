@@ -2,7 +2,8 @@ from django.shortcuts import render
 from .serializers import DepartmentSerializer,PersonnelSerializer
 from rest_framework.generics import ListCreateAPIView,RetrieveUpdateDestroyAPIView,ListAPIView
 from .models import Department,Personnel
-
+from rest_framework.permissions import IsAuthenticated
+from .permissions import IsAdminOrReadOnly
 
 class DepartmentListCreateView(ListCreateAPIView):
     queryset = Department.objects.all()
