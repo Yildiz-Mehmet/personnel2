@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'personnel',
     'users',
     'dj_rest_auth',
-    'rest_framework_swagger',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
